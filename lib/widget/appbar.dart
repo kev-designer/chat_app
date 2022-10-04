@@ -39,7 +39,28 @@ AppBar buildAppBar(
   );
 }
 
-//HAMBURGURE MENU & SEARCH ICON
+// MAIN APP BAR
+AppBar buildMainAppBar(
+  BuildContext context,
+  String appbarTitle,
+) {
+  return AppBar(
+    centerTitle: true,
+    elevation: 1,
+    shadowColor: ColorData.black.withOpacity(0.1),
+    backgroundColor: Colors.white,
+    title: Text(
+      appbarTitle,
+      style: GoogleFonts.nunito(
+        fontSize: height(context) * .025,
+        fontWeight: FontWeight.w800,
+        color: ColorData.black,
+      ),
+    ),
+  );
+}
+
+// SEARCH ICON
 AppBar buildMessageAppBar(
   BuildContext context,
   String appbarTitle,

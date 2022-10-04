@@ -1,3 +1,4 @@
+import 'package:chat_app/widget/appbar.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -10,6 +11,6 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(appBar: buildMainAppBar(context, "Message App"));
   }
 }
