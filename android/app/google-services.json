@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "691924033701",
+    "project_id": "chat-app-ec9f8",
+    "storage_bucket": "chat-app-ec9f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691924033701:android:a942d5588164a7b9e8ad4c",
+        "android_client_info": {
+          "package_name": "com.keval.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691924033701-vaipadqes96fni18uavj4gm68iac66ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2MWDOPMN69FdB0yng-_CDC2y6uxwj2Yg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691924033701-vaipadqes96fni18uavj4gm68iac66ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
