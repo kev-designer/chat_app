@@ -1,4 +1,3 @@
-//BIG FILLED BUTTON
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -7,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 import 'const.dart';
 
+//BIG FILLED BUTTON
 class FilledButton extends StatefulWidget {
   final bool loading;
   final VoidCallback onPressed;
