@@ -11,6 +11,6 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: buildMainAppBar(context, "Message App"));
+    return Scaffold(appBar: buildMainAppBar(context, "Flutter Chat App"));
   }
 }
