@@ -1,9 +1,8 @@
-import 'package:chat_app/services.dart/auth.dart';
+import 'package:chat_app/services/auth.dart';
 import 'package:chat_app/widget/appbar.dart';
 import 'package:chat_app/widget/buttons.dart';
 import 'package:chat_app/widget/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
