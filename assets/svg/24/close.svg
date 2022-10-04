@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Iconly_Bulk_Arrow---Left-Square" data-name="Iconly/Bulk/Arrow---Left-Square" transform="translate(-2 -2)">
+    <g id="Arrow---Left-Square" transform="translate(22 2) rotate(90)">
+      <path id="Fill-1" d="M0,5.916v8.168C0,17.623,2.276,20,5.665,20h8.67C17.724,20,20,17.623,20,14.084V5.916C20,2.378,17.723,0,14.334,0H5.665C2.276,0,0,2.378,0,5.916" fill="#4960e5" opacity="0.1"/>
+      <g id="Iconly_Light-Outline_Close-Square" data-name="Iconly/Light-Outline/Close-Square" transform="translate(2.404 17.374) rotate(-90)">
+        <g id="Close-Square" transform="translate(2 2)">
+          <path id="Combined-Shape" d="M8.021,0a3.07,3.07,0,0,1,3.17,3.31v4.57a3.07,3.07,0,0,1-3.171,3.31H3.17A3.069,3.069,0,0,1,0,7.881V3.31A3.069,3.069,0,0,1,3.17,0Zm0,.839H3.17A2.252,2.252,0,0,0,.839,3.31v4.57A2.252,2.252,0,0,0,3.17,10.352H8.02a2.253,2.253,0,0,0,2.332-2.471V3.31A2.253,2.253,0,0,0,8.021.839ZM4.549,3.952,5.594,5,6.639,3.953a.419.419,0,0,1,.593.593L6.188,5.59,7.233,6.636a.419.419,0,1,1-.593.593L5.594,6.183,4.551,7.228a.419.419,0,1,1-.593-.593L5,5.59,3.956,4.545a.419.419,0,0,1,.593-.593Z" fill="#4960e5" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

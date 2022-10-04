@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39.093" height="39.093" viewBox="0 0 39.093 39.093">
+  <g id="Play" transform="translate(0)">
+    <path id="Fill-1" d="M39.093,19.556A19.546,19.546,0,1,1,19.546,0,19.57,19.57,0,0,1,39.093,19.556" transform="translate(0)" fill="#fff" opacity="0.2"/>
+    <path id="Icon_awesome-stop" data-name="Icon awesome-stop" d="M16.964,2.25H2.036A2.036,2.036,0,0,0,0,4.286V19.214A2.036,2.036,0,0,0,2.036,21.25H16.964A2.036,2.036,0,0,0,19,19.214V4.286A2.036,2.036,0,0,0,16.964,2.25Z" transform="translate(10 7.75)" fill="#fff"/>
+  </g>
+</svg>

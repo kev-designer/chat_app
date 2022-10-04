@@ -1,0 +1,11 @@
+<svg id="Iconly_Bulk_Arrow---Left-Square" data-name="Iconly/Bulk/Arrow---Left-Square" xmlns="http://www.w3.org/2000/svg" width="32.004" height="32.004" viewBox="0 0 32.004 32.004">
+  <g id="Arrow---Left-Square" transform="translate(32.004 0) rotate(90)">
+    <path id="Fill-1" d="M0,9.467v13.07C0,28.2,3.642,32,9.065,32H22.939C28.362,32,32,28.2,32,22.537V9.467C32,3.805,28.36,0,22.937,0H9.065C3.642,0,0,3.805,0,9.467" transform="translate(0 0)" fill="#4960e5" opacity="0.1"/>
+    <g id="Iconly_Bulk_Add-User" data-name="Iconly/Bulk/Add-User" transform="translate(6.401 23.363) rotate(-90)">
+      <g id="Add-User" transform="translate(0 0)">
+        <path id="Fill-4" d="M7.384,0C3.4,0,0,.637,0,3.181s3.38,3.2,7.384,3.2c3.982,0,7.384-.637,7.384-3.181S11.388,0,7.384,0" transform="translate(0 12.322)" fill="#4960e5"/>
+        <path id="Fill-7" d="M4.886,9.9A4.9,4.9,0,0,0,9.772,4.95,4.886,4.886,0,1,0,0,4.95,4.9,4.9,0,0,0,4.886,9.9" transform="translate(2.498)" fill="#4960e5" opacity="0.4"/>
+      </g>
+    </g>
+  </g>
+</svg>

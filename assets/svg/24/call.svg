@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Iconly_Bulk_Arrow---Left-Square" data-name="Iconly/Bulk/Arrow---Left-Square" transform="translate(-2 -2)">
+    <g id="Arrow---Left-Square" transform="translate(22 2) rotate(90)">
+      <path id="Fill-1" d="M0,5.916v8.168C0,17.623,2.276,20,5.665,20h8.67C17.724,20,20,17.623,20,14.084V5.916C20,2.378,17.723,0,14.334,0H5.665C2.276,0,0,2.378,0,5.916" fill="#4960e5" opacity="0.1"/>
+      <path id="Path_60318" data-name="Path 60318" d="M-488.557,496.987a4.072,4.072,0,0,0,2.452,2.452.9.9,0,0,0,1.037-.566h0a.878.878,0,0,1,1.462-.33l1.32,1.32a.942.942,0,0,1,0,1.273l-.9.9c-.943.943-3.443-.094-5.659-2.311s-3.207-4.716-2.311-5.659l.9-.9a.942.942,0,0,1,1.273,0l1.32,1.32a.878.878,0,0,1-.33,1.462h0A.855.855,0,0,0-488.557,496.987Z" transform="translate(-487.419 -476.98) rotate(-90)" fill="none" stroke="#4960e5" stroke-width="0.8"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33.004" height="33.004" viewBox="0 0 33.004 33.004">
+  <g id="Iconly_Bulk_Arrow---Left-Square" data-name="Iconly/Bulk/Arrow---Left-Square" transform="translate(0.5 0.5)">
+    <g id="Arrow---Left-Square" transform="translate(32.004 0) rotate(90)">
+      <path id="Fill-1" d="M0,9.467v13.07C0,28.2,3.642,32,9.065,32H22.939C28.362,32,32,28.2,32,22.537V9.467C32,3.805,28.36,0,22.937,0H9.065C3.642,0,0,3.805,0,9.467" transform="translate(0 0)" fill="#fff" stroke="#e6e6e6" stroke-width="1"/>
+      <g id="Iconly_Bold_Camera" data-name="Iconly/Bold/Camera" transform="translate(4.008 27.958) rotate(-90)">
+        <g id="Camera" transform="translate(2 3)">
+          <path id="Path_61351" data-name="Path 61351" d="M12.35,0a2.442,2.442,0,0,1,2.22,1.408c.119.237.284.584.458.949l.209.442h0l.1.217.1.22a.227.227,0,0,0,.2.12A4.368,4.368,0,0,1,20,7.711h0v5.933A4.368,4.368,0,0,1,15.64,18H4.36A4.361,4.361,0,0,1,0,13.645H0V7.711A4.361,4.361,0,0,1,4.36,3.356a.2.2,0,0,0,.19-.12h0l.06-.12c.28-.589.62-1.309.82-1.708A2.428,2.428,0,0,1,7.64,0h4.71ZM10,6.4A3.921,3.921,0,0,0,7.21,7.562a3.864,3.864,0,0,0-1.14,2.767A3.932,3.932,0,1,0,10,6.4Zm0,1.5a2.429,2.429,0,1,1-2.43,2.427h0v-.01a2.346,2.346,0,0,1,.7-1.7A2.422,2.422,0,0,1,10,7.9Zm5.61-1.738a.9.9,0,1,0,.91.909A.9.9,0,0,0,15.61,6.163Z" fill="#4960e5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

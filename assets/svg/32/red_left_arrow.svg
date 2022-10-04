@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33.004" height="33.004" viewBox="0 0 33.004 33.004">
+  <g id="Iconly_Bulk_Arrow---Left-Square" data-name="Iconly/Bulk/Arrow---Left-Square" transform="translate(0.5 0.5)">
+    <g id="Arrow---Left-Square" transform="translate(32.004 0) rotate(90)">
+      <path id="Fill-1" d="M0,9.467v13.07C0,28.2,3.642,32,9.065,32H22.939C28.362,32,32,28.2,32,22.537V9.467C32,3.805,28.36,0,22.937,0H9.065C3.642,0,0,3.805,0,9.467" transform="translate(0 0)" fill="#fff" stroke="#e6e6e6" stroke-width="1"/>
+      <g id="Iconly_Bulk_Arrow---Left" data-name="Iconly/Bulk/Arrow---Left" transform="translate(4 28.002) rotate(-90)">
+        <g id="Arrow---Left" transform="translate(21 6) rotate(90)">
+          <path id="Fill-1-2" data-name="Fill-1" d="M4.81,5.2,4.483,1.5a1.518,1.518,0,0,1,3.036,0L7.191,5.2a1.191,1.191,0,0,1-2.381,0" fill="#f53434"/>
+          <path id="Fill-4" d="M4.87,17.625c-.058-.058-.305-.274-.51-.477A22.073,22.073,0,0,1,.336,11.257,4.828,4.828,0,0,1,0,10.058a2,2,0,0,1,.219-.91,1.886,1.886,0,0,1,.9-.808,9.79,9.79,0,0,1,1.064-.261,23.636,23.636,0,0,1,3.806-.244,27.291,27.291,0,0,1,3.688.216,8.26,8.26,0,0,1,1.327.347A1.815,1.815,0,0,1,12,10v.058a5.031,5.031,0,0,1-.408,1.343,22.044,22.044,0,0,1-3.967,5.761,5.692,5.692,0,0,1-.554.491A1.768,1.768,0,0,1,6.008,18a1.856,1.856,0,0,1-1.138-.375" fill="#f53434"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

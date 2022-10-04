@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32.004" height="32.004" viewBox="0 0 32.004 32.004">
+  <g id="Iconly_Bulk_Arrow---Left-Square" data-name="Iconly/Bulk/Arrow---Left-Square" transform="translate(-0.046 -0.417)">
+    <g id="Arrow---Left-Square" transform="translate(32.004 0) rotate(90)">
+      <path id="Fill-1" d="M0,9.467v13.07C0,28.2,3.642,32,9.065,32H22.939C28.362,32,32,28.2,32,22.537V9.467C32,3.805,28.36,0,22.937,0H9.065C3.642,0,0,3.805,0,9.467" transform="translate(0.417 -0.046)" fill="#4960e5" opacity="0.1"/>
+      <g id="Iconly_Bold_Search" data-name="Iconly/Bold/Search" transform="translate(5.417 26.958) rotate(-90)">
+        <g id="Search" transform="translate(2 2)">
+          <path id="Path_61359" data-name="Path 61359" d="M14.059,14.089a.887.887,0,0,1,1.253,0h0l2.3,1.856h.04a1.213,1.213,0,0,1,0,1.7,1.182,1.182,0,0,1-1.684,0h0l-1.908-2.187-.072-.082a.976.976,0,0,1,.072-1.29ZM7.72,0a7.678,7.678,0,0,1,5.459,2.285A7.846,7.846,0,0,1,15.44,7.8a7.762,7.762,0,0,1-7.72,7.8A7.762,7.762,0,0,1,0,7.8,7.762,7.762,0,0,1,7.72,0Z" transform="translate(0 0)" fill="#4960e5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

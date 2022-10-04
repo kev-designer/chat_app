@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Iconly_Bulk_Arrow---Left-Square" data-name="Iconly/Bulk/Arrow---Left-Square" transform="translate(-2.044 -2)">
+    <g id="Arrow---Left-Square" transform="translate(22 2) rotate(90)">
+      <path id="Fill-1" d="M0,5.916v8.168C0,17.623,2.276,20,5.665,20h8.67C17.724,20,20,17.623,20,14.084V5.916C20,2.378,17.723,0,14.334,0H5.665C2.276,0,0,2.378,0,5.916" transform="translate(0 -0.044)" fill="#4960e5" opacity="0.1"/>
+      <g id="Icon_feather-clock" data-name="Icon feather-clock" transform="translate(1 18.956) rotate(-90)">
+        <path id="Path_61348" data-name="Path 61348" d="M15,9A6,6,0,1,1,9,3a6,6,0,0,1,6,6Z" fill="none" stroke="#4960e5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+        <path id="Path_61349" data-name="Path 61349" d="M18,9v3.167l2.111,1.056" transform="translate(-8.819 -3.407)" fill="none" stroke="#4960e5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+      </g>
+    </g>
+  </g>
+</svg>
