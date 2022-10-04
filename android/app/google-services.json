@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "691924033701-dmqp3kgipjb1dhdn3us6j1i4hoev5r6b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.keval.chatapp",
+            "certificate_hash": "060984dde40c090ada0f71d3ab3f871723b8d47f"
+          }
+        },
+        {
           "client_id": "691924033701-vaipadqes96fni18uavj4gm68iac66ob.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "691924033701-vaipadqes96fni18uavj4gm68iac66ob.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "691924033701-rnvbbu1j4gnhm3hgg7qmk1drev3dl56e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.keval.chatapp"
+              }
             }
           ]
         }
