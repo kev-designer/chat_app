@@ -1,4 +1,5 @@
 import 'package:chat_app/services/database.dart';
+import 'package:chat_app/view/chat_screen.dart';
 import 'package:chat_app/widget/appbar.dart';
 import 'package:chat_app/widget/buttons.dart';
 import 'package:chat_app/widget/colors.dart';
@@ -39,9 +40,9 @@ class _SearchPageState extends State<SearchPage> {
                 itemBuilder: (context, index) {
                   DocumentSnapshot ds = snapshot.data.docs[index];
                   return searchUserTileList(
-                    ds['imageUrl'],
-                    ds['name'],
-                    ds['username'],
+                    imageUrl: ds['imageUrl'],
+                    name: ds['name'],
+                    userName: ds['username'],
                   );
                 },
               )
@@ -58,7 +59,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 
 //SEARCH USER TILE
-  Widget searchUserTileList(String imageUrl, name, userName) {
+  Widget searchUserTileList({required String imageUrl, name, userName}) {
     return Column(
       children: [
         32.heightBox,
@@ -107,6 +108,12 @@ class _SearchPageState extends State<SearchPage> {
               textName: " Chat     ",
               onPressed: () {
                 HapticFeedback.heavyImpact();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          ChatScreen(name: name, userName: userName)),
+                );
               },
               textColor: ColorData.primary,
               borderColor: ColorData.primary,
