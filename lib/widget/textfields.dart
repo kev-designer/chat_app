@@ -41,11 +41,6 @@ class SearchBar extends StatelessWidget {
               child: suffixIcon,
             ),
           ),
-          // suffixIcon: Padding(
-          //   padding:
-          //       const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
-          //   child: SvgPicture.asset(svgIcon),
-          // ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(7),
             borderSide: const BorderSide(color: Color(0xFFE0E0E0), width: 1.8),

@@ -1,12 +1,14 @@
-import 'dart:html';
-
 import 'package:chat_app/services/database.dart';
 import 'package:chat_app/widget/appbar.dart';
+import 'package:chat_app/widget/buttons.dart';
+import 'package:chat_app/widget/colors.dart';
 import 'package:chat_app/widget/textfields.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -16,28 +18,103 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  late Stream userStream;
+  Stream? userStream;
   TextEditingController searchController = TextEditingController();
 
 //BTN CLICK FUNCTION
   onSearchBtnClick() async {
-    userStream =
-        await DatabaseMethods().getUserByUserName(searchController.text);
+    userStream = await DatabaseMethods().getUserByName(searchController.text);
     setState(() {});
   }
 
+//SEARCH LIST
   Widget searchUserList() {
     return StreamBuilder(
       stream: userStream,
       builder: (context, snapshot) {
-        return ListView.builder(
-          itemCount: snapshot.data.documents.lenght,
-          itemBuilder: (context, index) {
-            DocumentSnapshot ds = snapshot.data.documents[index];
-            return Image.network(ds["imageUrl"]);
-          },
-        );
+        return snapshot.hasData
+            ? ListView.builder(
+                itemCount: snapshot.data.docs!.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  DocumentSnapshot ds = snapshot.data.docs[index];
+                  return searchUserTileList(
+                    ds['imageUrl'],
+                    ds['name'],
+                    ds['username'],
+                  );
+                },
+              )
+            : Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [Text("")],
+                ),
+              );
       },
+    );
+  }
+
+//SEARCH USER TILE
+  Widget searchUserTileList(String imageUrl, name, userName) {
+    return Column(
+      children: [
+        32.heightBox,
+        Row(
+          children: [
+            Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                color: ColorData.white,
+                borderRadius: BorderRadius.circular(100),
+                image: DecorationImage(
+                  image: NetworkImage(imageUrl),
+                ),
+              ),
+            ),
+            12.widthBox,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: GoogleFonts.nunito(
+                      color: ColorData.black,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  6.heightBox,
+                  Text(
+                    userName,
+                    style: GoogleFonts.nunito(
+                      color: ColorData.grey,
+                      fontSize: 16,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    softWrap: true,
+                  ),
+                ],
+              ),
+            ),
+            12.widthBox,
+            SmallColouredButton(
+              textName: " Chat     ",
+              onPressed: () {
+                HapticFeedback.heavyImpact();
+              },
+              textColor: ColorData.primary,
+              borderColor: ColorData.primary,
+              buttonColor: ColorData.white,
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -48,25 +125,27 @@ class _SearchPageState extends State<SearchPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              SearchBar(
-                hintText: "Search User..",
-                controller: searchController,
-                suffixIcon: GestureDetector(
-                  onTap: () {
-                    HapticFeedback.heavyImpact();
-                    if (searchController.text != "") {
-                      onSearchBtnClick();
-                    }
-                  },
-                  child: SvgPicture.asset(
-                    "assets/svg/32/search.svg",
+          child: Expanded(
+            child: Column(
+              children: [
+                SearchBar(
+                  hintText: "Search User by Full Name...",
+                  controller: searchController,
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      HapticFeedback.heavyImpact();
+                      if (searchController.text != "") {
+                        onSearchBtnClick();
+                      }
+                    },
+                    child: SvgPicture.asset(
+                      "assets/svg/32/search.svg",
+                    ),
                   ),
                 ),
-              ),
-              searchUserList(),
-            ],
+                searchUserList(),
+              ],
+            ),
           ),
         ),
       ),

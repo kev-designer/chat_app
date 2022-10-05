@@ -75,3 +75,53 @@ class _FilledButtonState extends State<FilledButton>
     );
   }
 }
+
+//SMALL FILLED BUTTON
+class SmallColouredButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String textName;
+  final Color textColor;
+  final Color buttonColor;
+  final Color borderColor;
+
+  const SmallColouredButton(
+      {Key? key,
+      required this.textName,
+      required this.onPressed,
+      required this.textColor,
+      required this.borderColor,
+      required this.buttonColor})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          vertical: 12,
+          horizontal: 10,
+        ),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: buttonColor.withOpacity(.04),
+          border: Border.all(color: borderColor),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(8),
+          ),
+        ),
+        child: Text(
+          textName,
+          style: GoogleFonts.nunito(
+            color: textColor,
+            fontSize: height(context) * .02,
+            fontWeight: FontWeight.w600,
+          ),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+}

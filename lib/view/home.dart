@@ -1,8 +1,5 @@
 import 'package:chat_app/widget/appbar.dart';
-import 'package:chat_app/widget/textfields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

@@ -10,10 +10,10 @@ class DatabaseMethods {
   }
 
   //GET USER BY NAME FUNCTION
-  Future<Stream<QuerySnapshot>> getUserByUserName(String username) async {
+  Future<Stream<QuerySnapshot>> getUserByName(String name) async {
     return await FirebaseFirestore.instance
         .collection("users")
-        .where("username", isEqualTo: username)
+        .where("name", isEqualTo: name)
         .snapshots();
   }
 }
