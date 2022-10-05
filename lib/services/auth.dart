@@ -8,8 +8,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthMethods {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
-  getCurentUser() {
-    return auth.currentUser;
+  getCurentUser() async {
+    return await auth.currentUser;
   }
 
   //GOOGLE SIGN IN FUNCTION

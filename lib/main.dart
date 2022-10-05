@@ -1,3 +1,5 @@
+import 'package:chat_app/services/auth.dart';
+import 'package:chat_app/view/home.dart';
 import 'package:chat_app/view/sign_in.dart';
 import 'package:chat_app/widget/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +23,16 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: ColorData.white,
         primarySwatch: Colors.blue,
       ),
-      home: const SignIn(),
+      home: FutureBuilder(
+        future: AuthMethods().getCurentUser(),
+        builder: (context, AsyncSnapshot<dynamic> snapshot) {
+          if (snapshot.hasData) {
+            return const HomePage();
+          } else {
+            return const SignIn();
+          }
+        },
+      ),
     );
   }
 }
