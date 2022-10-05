@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import 'colors.dart';
 import 'const.dart';
@@ -125,12 +126,33 @@ AppBar buildMessageAppBar(
         padding: const EdgeInsets.only(right: 20),
         child: Row(
           children: [
+            //SEARCH
             GestureDetector(
               onTap: () {
                 HapticFeedback.heavyImpact();
               },
               child: SvgPicture.asset(
                 "assets/svg/32/search.svg",
+              ),
+            ),
+            20.widthBox,
+
+            //LOGOUT
+            GestureDetector(
+              onTap: () {
+                HapticFeedback.heavyImpact();
+                AuthMethods().signOut().then((value) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignIn(),
+                    ),
+                  );
+                });
+              },
+              child: SvgPicture.asset(
+                "assets/svg/32/logout.svg",
+                color: ColorData.red,
               ),
             ),
           ],
