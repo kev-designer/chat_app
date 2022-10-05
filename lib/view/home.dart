@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildMainAppBar(context, "Home Page"),
+      appBar: buildLogoutAppBar(context, "Home Page"),
     );
   }
 }

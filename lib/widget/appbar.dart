@@ -1,3 +1,5 @@
+import 'package:chat_app/services/auth.dart';
+import 'package:chat_app/view/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -60,6 +62,54 @@ AppBar buildMainAppBar(
   );
 }
 
+// LOGOUT APP BAR
+AppBar buildLogoutAppBar(
+  BuildContext context,
+  String appbarTitle,
+) {
+  return AppBar(
+    centerTitle: true,
+    elevation: 1,
+    shadowColor: ColorData.black.withOpacity(0.1),
+    backgroundColor: Colors.white,
+    actions: [
+      Padding(
+        padding: const EdgeInsets.only(right: 20),
+        child: Row(
+          children: [
+            GestureDetector(
+              onTap: () {
+                HapticFeedback.heavyImpact();
+                AuthMethods().signOut().then((value) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignIn(),
+                    ),
+                  );
+                });
+              },
+              child: const Icon(
+                Icons.exit_to_app,
+                size: 25,
+                color: ColorData.primary,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+    title: Text(
+      appbarTitle,
+      style: GoogleFonts.nunito(
+        fontSize: height(context) * .025,
+        fontWeight: FontWeight.w800,
+        color: ColorData.black,
+      ),
+    ),
+  );
+}
+
 // SEARCH ICON
 AppBar buildMessageAppBar(
   BuildContext context,
@@ -72,7 +122,7 @@ AppBar buildMessageAppBar(
     backgroundColor: Colors.white,
     actions: [
       Padding(
-        padding: const EdgeInsets.only(right: 16),
+        padding: const EdgeInsets.only(right: 20),
         child: Row(
           children: [
             GestureDetector(
