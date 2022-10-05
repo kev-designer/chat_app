@@ -1,4 +1,5 @@
 import 'package:chat_app/services/auth.dart';
+import 'package:chat_app/view/search.dart';
 import 'package:chat_app/view/sign_in.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +18,7 @@ AppBar buildAppBar(
   return AppBar(
     elevation: 1,
     shadowColor: ColorData.black.withOpacity(0.1),
-    centerTitle: false,
+    centerTitle: true,
     backgroundColor: Colors.white,
     leading: Padding(
       padding: const EdgeInsets.only(left: 20, right: 2),
@@ -63,8 +64,8 @@ AppBar buildMainAppBar(
   );
 }
 
-// LOGOUT APP BAR
-AppBar buildLogoutAppBar(
+// LOGOUT ICON
+AppBar buildMessageAppBar(
   BuildContext context,
   String appbarTitle,
 ) {
@@ -78,6 +79,24 @@ AppBar buildLogoutAppBar(
         padding: const EdgeInsets.only(right: 20),
         child: Row(
           children: [
+            //SEARCH
+            GestureDetector(
+              onTap: () {
+                HapticFeedback.heavyImpact();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SearchPage(),
+                  ),
+                );
+              },
+              child: SvgPicture.asset(
+                "assets/svg/32/search.svg",
+              ),
+            ),
+
+            20.widthBox,
+            //LOGOUT
             GestureDetector(
               onTap: () {
                 HapticFeedback.heavyImpact();
@@ -90,10 +109,9 @@ AppBar buildLogoutAppBar(
                   );
                 });
               },
-              child: const Icon(
-                Icons.exit_to_app,
-                size: 25,
-                color: ColorData.primary,
+              child: SvgPicture.asset(
+                "assets/svg/32/logout.svg",
+                color: ColorData.red,
               ),
             ),
           ],
@@ -112,7 +130,7 @@ AppBar buildLogoutAppBar(
 }
 
 // SEARCH ICON
-AppBar buildMessageAppBar(
+AppBar buildSeachIconAppBar(
   BuildContext context,
   String appbarTitle,
 ) {
@@ -133,26 +151,6 @@ AppBar buildMessageAppBar(
               },
               child: SvgPicture.asset(
                 "assets/svg/32/search.svg",
-              ),
-            ),
-            20.widthBox,
-
-            //LOGOUT
-            GestureDetector(
-              onTap: () {
-                HapticFeedback.heavyImpact();
-                AuthMethods().signOut().then((value) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SignIn(),
-                    ),
-                  );
-                });
-              },
-              child: SvgPicture.asset(
-                "assets/svg/32/logout.svg",
-                color: ColorData.red,
               ),
             ),
           ],
