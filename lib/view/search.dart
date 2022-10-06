@@ -30,6 +30,8 @@ class _SearchPageState extends State<SearchPage> {
     myProfilePic = (await SharedPreferenceHelper().getUserProfilePic())!;
     myUserName = (await SharedPreferenceHelper().getUserName())!;
     myEmail = (await SharedPreferenceHelper().getUserEmail())!;
+
+    setState(() {});
   }
 
   TextEditingController searchController = TextEditingController();

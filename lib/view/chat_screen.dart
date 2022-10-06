@@ -1,4 +1,5 @@
 import 'package:chat_app/services/database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -24,6 +25,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   late String chatRoomId, messageId = "";
   late String myName, myProfilePic, myUserName, myEmail;
+  late Stream messageStream;
 
   TextEditingController messageController = TextEditingController();
 
@@ -37,6 +39,7 @@ class _ChatScreenState extends State<ChatScreen> {
     chatRoomId = getChatRoomIdByUserNames(widget.userName, myUserName);
   }
 
+  //GET CHAT ROOM ID BY USER NAME
   getChatRoomIdByUserNames(String a, String b) {
     if (a.substring(0, 1).codeUnitAt(0) > b.substring(0, 1).codeUnitAt(0)) {
       return "$b\_$a";
@@ -45,6 +48,7 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
+  //ADD MESSAGE BY CLICK
   addMessage(bool sendClicked) {
     if (messageController.text != "") {
       String message = messageController.text;
@@ -84,8 +88,29 @@ class _ChatScreenState extends State<ChatScreen> {
     } else {}
   }
 
-  getAndSetMessage() async {}
+//
+  getAndSetMessage() async {
+    messageStream = await DatabaseMethods().getChatRoomMessages(chatRoomId);
+  }
 
+//BUBBLE LIST
+  Widget chatMessages() {
+    return StreamBuilder(
+      stream: messageStream,
+      builder: (context, snapshot) {
+        return ListView.builder(
+          itemCount: snapshot.data.doc.length,
+          itemBuilder: (context, index) {
+            DocumentSnapshot ds = snapshot.data.docs[index];
+
+            return Text(ds["message"]);
+          },
+        );
+      },
+    );
+  }
+
+//
   doThisOnLaunch() async {
     await getMyInfoFromSharedPreference();
     getAndSetMessage();
@@ -117,6 +142,9 @@ class _ChatScreenState extends State<ChatScreen> {
                   //TEXT MESSAGE TYPING
                   Expanded(
                     child: TextField(
+                      onChanged: (value) {
+                        addMessage(false);
+                      },
                       controller: messageController,
                       cursorColor: ColorData.primary,
                       decoration: InputDecoration(
@@ -151,6 +179,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   InkWell(
                     onTap: () {
                       HapticFeedback.heavyImpact();
+                      addMessage(true);
                     },
                     child: SvgPicture.asset(
                       "assets/svg/24/send.svg",
