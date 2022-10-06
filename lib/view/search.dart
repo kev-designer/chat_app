@@ -1,3 +1,4 @@
+import 'package:chat_app/helperfunction/sharedpref_helper.dart';
 import 'package:chat_app/services/database.dart';
 import 'package:chat_app/view/chat_screen.dart';
 import 'package:chat_app/widget/appbar.dart';
@@ -20,7 +21,26 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   Stream? userStream;
+
+  late String myName, myProfilePic, myUserName, myEmail;
+
+  //
+  getMyInfoFromSharedPreference() async {
+    myName = (await SharedPreferenceHelper().getUserDisplayName())!;
+    myProfilePic = (await SharedPreferenceHelper().getUserProfilePic())!;
+    myUserName = (await SharedPreferenceHelper().getUserName())!;
+    myEmail = (await SharedPreferenceHelper().getUserEmail())!;
+  }
+
   TextEditingController searchController = TextEditingController();
+
+  getChatRoomIdByUserNames(String a, String b) {
+    if (a.substring(0, 1).codeUnitAt(0) > b.substring(0, 1).codeUnitAt(0)) {
+      return "$b\_$a";
+    } else {
+      return "$a\_$b";
+    }
+  }
 
 //BTN CLICK FUNCTION
   onSearchBtnClick() async {
@@ -108,6 +128,15 @@ class _SearchPageState extends State<SearchPage> {
               textName: " Chat     ",
               onPressed: () {
                 HapticFeedback.heavyImpact();
+
+                //GENERATE CHAT ROOM ID
+                var chatRoomId = getChatRoomIdByUserNames(myUserName, userName);
+                Map<String, dynamic> chatRoomInfoMap = {
+                  "users": [myUserName, userName]
+                };
+                DatabaseMethods().createChatRoom(chatRoomId, chatRoomInfoMap);
+
+                //
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -123,6 +152,13 @@ class _SearchPageState extends State<SearchPage> {
         ),
       ],
     );
+  }
+
+//INIT STATE
+  @override
+  void initState() {
+    getMyInfoFromSharedPreference();
+    super.initState();
   }
 
   @override

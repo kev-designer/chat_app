@@ -1,3 +1,4 @@
+import 'package:chat_app/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -44,7 +45,7 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
-  addMEssage(bool sendClicked) {
+  addMessage(bool sendClicked) {
     if (messageController.text != "") {
       String message = messageController.text;
 
@@ -60,6 +61,26 @@ class _ChatScreenState extends State<ChatScreen> {
       if (messageId == "") {
         messageId = randomAlphaNumeric(12);
       }
+      DatabaseMethods()
+          .addMessage(chatRoomId, messageId, messageInfoMap)
+          .then((value) {
+        Map<String, dynamic> lastMessageInfoMap = {
+          "lastMessage": message,
+          "lastMessageSentTs": lastMessageTs,
+          "lastMessageSendBy": myUserName,
+        };
+
+        //UPDATE MESSGAE SEND
+        DatabaseMethods().updateLastMessageSent(chatRoomId, lastMessageInfoMap);
+
+        if (sendClicked) {
+          //REMOVE TEXT ON TEXT FIELD
+          messageController.text = "";
+
+          //MESSAGE ID BLANK TO GET NEW MESSGE SEND
+          messageId = "";
+        }
+      });
     } else {}
   }
 
