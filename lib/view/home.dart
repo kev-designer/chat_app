@@ -71,6 +71,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 chatRoomList(),
+                20.heightBox,
               ],
             ),
           ),
@@ -114,119 +115,83 @@ class _ChatRoomListTileState extends State<ChatRoomListTile> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        HapticFeedback.heavyImpact();
-
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ChatScreen(name: name, userName: userName),
-          ),
-        );
-
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) {
-        //       return const ChatDetailPage();
-        //     },
-        //   ),
-        // );
-      },
-      child: Container(
-        color: ColorData.white,
-        padding: const EdgeInsets.all(20),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Row(
-                children: [
-                  //PROFILE IMAGE
-                  CircleAvatar(
-                    backgroundColor: ColorData.primary,
-                    backgroundImage: NetworkImage(myProfilePic),
-                    maxRadius: 30,
-                  ),
-                  12.widthBox,
-                  //NAME & MESSAGE
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          name,
-                          style: GoogleFonts.nunito(
-                            fontSize: height(context) * .02,
-                            fontWeight: FontWeight.w700,
-                            color: ColorData.black,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          softWrap: true,
-                        ),
-                        8.heightBox,
-                        Text(
-                          widget.lastMessage,
-                          style: GoogleFonts.nunito(
-                            fontSize: height(context) * .018,
-                            color: ColorData.grey,
-                            fontWeight: FontWeight.w600,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          softWrap: true,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            HapticFeedback.heavyImpact();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    ChatScreen(name: name, userName: userName),
               ),
+            );
+          },
+          child: Container(
+            color: ColorData.white,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      //PROFILE IMAGE
+                      CircleAvatar(
+                        backgroundColor: ColorData.primary,
+                        backgroundImage: NetworkImage(myProfilePic),
+                        maxRadius: 30,
+                      ),
+                      12.widthBox,
+                      //NAME & MESSAGE
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              name,
+                              style: GoogleFonts.nunito(
+                                fontSize: height(context) * .02,
+                                fontWeight: FontWeight.w700,
+                                color: ColorData.black,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              softWrap: true,
+                            ),
+                            8.heightBox,
+                            Text(
+                              widget.lastMessage,
+                              style: GoogleFonts.nunito(
+                                fontSize: height(context) * .018,
+                                color: ColorData.grey,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              softWrap: true,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                //TIME
+                // Text(
+                //   widget.time,
+                //   style: GoogleFonts.nunito(
+                //     fontSize: height(context) * .018,
+                //     color: ColorData.primary,
+                //     fontWeight: FontWeight.w600,
+                //   ),
+                // ),
+              ],
             ),
-            //TIME
-            // Text(
-            //   widget.time,
-            //   style: GoogleFonts.nunito(
-            //     fontSize: height(context) * .018,
-            //     color: ColorData.primary,
-            //     fontWeight: FontWeight.w600,
-            //   ),
-            // ),
-          ],
+          ),
         ),
-      ),
+        20.heightBox,
+      ],
     );
-
-    // return GestureDetector(
-    //   onTap: () {
-    //     HapticFeedback.heavyImpact();
-
-    //     Navigator.push(
-    //       context,
-    //       MaterialPageRoute(
-    //         builder: (context) => ChatScreen(name: name, userName: userName),
-    //       ),
-    //     );
-    //   },
-    //   child: Row(
-    //     children: [
-    //       Expanded(
-    //         child: Image.network(
-    //           myProfilePic,
-    //           height: 30,
-    //           width: 30,
-    //         ),
-    //       ),
-    //       Column(
-    //         children: [
-    //           Text(name),
-    //           12.heightBox,
-    //           Text(widget.lastMessage),
-    //         ],
-    //       )
-    //     ],
-    //   ),
-    // );
   }
 }
