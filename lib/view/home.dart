@@ -1,7 +1,9 @@
 import 'package:chat_app/view/chat_screen.dart';
+import 'package:chat_app/widget/const.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:chat_app/services/database.dart';
@@ -122,25 +124,109 @@ class _ChatRoomListTileState extends State<ChatRoomListTile> {
             builder: (context) => ChatScreen(name: name, userName: userName),
           ),
         );
+
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) {
+        //       return const ChatDetailPage();
+        //     },
+        //   ),
+        // );
       },
-      child: Row(
-        children: [
-          Expanded(
-            child: Image.network(
-              myProfilePic,
-              height: 30,
-              width: 30,
+      child: Container(
+        color: ColorData.white,
+        padding: const EdgeInsets.all(20),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Row(
+                children: [
+                  //PROFILE IMAGE
+                  CircleAvatar(
+                    backgroundColor: ColorData.primary,
+                    backgroundImage: NetworkImage(myProfilePic),
+                    maxRadius: 30,
+                  ),
+                  12.widthBox,
+                  //NAME & MESSAGE
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          name,
+                          style: GoogleFonts.nunito(
+                            fontSize: height(context) * .02,
+                            fontWeight: FontWeight.w700,
+                            color: ColorData.black,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          softWrap: true,
+                        ),
+                        8.heightBox,
+                        Text(
+                          widget.lastMessage,
+                          style: GoogleFonts.nunito(
+                            fontSize: height(context) * .018,
+                            color: ColorData.grey,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          softWrap: true,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Column(
-            children: [
-              Text(name),
-              12.heightBox,
-              Text(widget.lastMessage),
-            ],
-          )
-        ],
+            //TIME
+            // Text(
+            //   widget.time,
+            //   style: GoogleFonts.nunito(
+            //     fontSize: height(context) * .018,
+            //     color: ColorData.primary,
+            //     fontWeight: FontWeight.w600,
+            //   ),
+            // ),
+          ],
+        ),
       ),
     );
+
+    // return GestureDetector(
+    //   onTap: () {
+    //     HapticFeedback.heavyImpact();
+
+    //     Navigator.push(
+    //       context,
+    //       MaterialPageRoute(
+    //         builder: (context) => ChatScreen(name: name, userName: userName),
+    //       ),
+    //     );
+    //   },
+    //   child: Row(
+    //     children: [
+    //       Expanded(
+    //         child: Image.network(
+    //           myProfilePic,
+    //           height: 30,
+    //           width: 30,
+    //         ),
+    //       ),
+    //       Column(
+    //         children: [
+    //           Text(name),
+    //           12.heightBox,
+    //           Text(widget.lastMessage),
+    //         ],
+    //       )
+    //     ],
+    //   ),
+    // );
   }
 }
