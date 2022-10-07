@@ -1,5 +1,7 @@
+import 'package:chat_app/view/chat_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:chat_app/services/database.dart';
@@ -31,11 +33,8 @@ class _HomePageState extends State<HomePage> {
                   return ChatRoomListTile(
                     chatRoomId: ds.id,
                     lastMessage: ds["lastMessage"],
-                    myUserName: "",
+                    myUserName: ds["lastMessageSendBy"],
                   );
-                  //  Text(
-                  //   ds.id.replaceAll("myUserName", "").replaceAll("_", ""),
-                  // );
                 },
               )
             : const Center(
@@ -66,10 +65,12 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              chatRoomList(),
-            ],
+          child: Expanded(
+            child: Column(
+              children: [
+                chatRoomList(),
+              ],
+            ),
           ),
         ),
       ),
@@ -91,30 +92,55 @@ class ChatRoomListTile extends StatefulWidget {
 }
 
 class _ChatRoomListTileState extends State<ChatRoomListTile> {
-  late String myProfilePic, name, username;
+  late String myProfilePic = "", name = "", userName = "";
 
   getThisUserInfo() async {
-    username =
+    userName =
         widget.chatRoomId.replaceAll(widget.myUserName, "").replaceAll("_", "");
-    QuerySnapshot querySnapshot = await DatabaseMethods().getUserInfo(username);
-    name = querySnapshot.docs[0]["name"];
-    myProfilePic = querySnapshot.docs[0]["imageUrl"];
+    QuerySnapshot querySnapshot = await DatabaseMethods().getUserInfo(userName);
+    // print("something ${querySnapshot.docs[0].id}");
+    name = "${querySnapshot.docs[0]["name"]}";
+    myProfilePic = "${querySnapshot.docs[0]["imageUrl"]}";
     setState(() {});
   }
 
   @override
+  void initState() {
+    getThisUserInfo();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.network(myProfilePic),
-        Column(
-          children: [
-            Text(name),
-            12.heightBox,
-            Text(widget.lastMessage),
-          ],
-        )
-      ],
+    return GestureDetector(
+      onTap: () {
+        HapticFeedback.heavyImpact();
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChatScreen(name: name, userName: userName),
+          ),
+        );
+      },
+      child: Row(
+        children: [
+          Expanded(
+            child: Image.network(
+              myProfilePic,
+              height: 30,
+              width: 30,
+            ),
+          ),
+          Column(
+            children: [
+              Text(name),
+              12.heightBox,
+              Text(widget.lastMessage),
+            ],
+          )
+        ],
+      ),
     );
   }
 }
