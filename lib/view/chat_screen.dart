@@ -94,18 +94,56 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
 //BUBBLE LIST
+  Widget chatMessageTile(String message, bool sendByMe) {
+    return Row(
+      mainAxisAlignment:
+          sendByMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(
+              10,
+            ),
+            color: (sendByMe
+                ? ColorData.primary
+                : ColorData.grey200.withOpacity(.35)),
+          ),
+          margin: const EdgeInsets.only(top: 16, left: 20, right: 20),
+          padding: const EdgeInsets.all(18),
+          child: Text(
+            message,
+            style: GoogleFonts.nunito(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: (sendByMe ? ColorData.white : ColorData.black),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+//
   Widget chatMessages() {
     return StreamBuilder(
       stream: messageStream,
       builder: (context, snapshot) {
-        return ListView.builder(
-          itemCount: snapshot.data.doc.length,
-          itemBuilder: (context, index) {
-            DocumentSnapshot ds = snapshot.data.docs[index];
+        return snapshot.hasData
+            ? ListView.builder(
+                reverse: true,
+                itemCount: snapshot.data.docs.length,
+                itemBuilder: (context, index) {
+                  DocumentSnapshot ds = snapshot.data.docs[index];
 
-            return Text(ds["message"]);
-          },
-        );
+                  return chatMessageTile(
+                      ds["message"], myUserName == ds["sendBy"]);
+                },
+              )
+            : const Center(
+                child: CircularProgressIndicator(
+                  color: ColorData.primary,
+                ),
+              );
       },
     );
   }
@@ -114,7 +152,10 @@ class _ChatScreenState extends State<ChatScreen> {
   doThisOnLaunch() async {
     await getMyInfoFromSharedPreference();
     getAndSetMessage();
+    setState(() {});
   }
+
+
 
   @override
   void initState() {
@@ -129,13 +170,17 @@ class _ChatScreenState extends State<ChatScreen> {
       body: Column(
         children: [
           //BODY PART
-          Expanded(child: Container()),
+          Expanded(
+            child: Container(
+              child: chatMessages(),
+            ),
+          ),
 
           //TYPING TEXT
           Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
